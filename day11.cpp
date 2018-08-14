@@ -17,6 +17,7 @@ int main()
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
     int largest = 0;
+    bool first = true;
     for(size_t x = 0; x < 4; x++){
         for(size_t ix=0; ix < 4; ix++){
             int total = 0;
@@ -24,6 +25,10 @@ int main()
             int mid = arr[x+1][ix+1];
             int bottom = arr[x+2][ix] + arr[x+2][ix+1] + arr[x+2][ix+2];
             total += top+mid+bottom;
+            if (first){
+                largest = total;
+                first = false;
+            }
             if(total > largest){
             largest = total;
         }
